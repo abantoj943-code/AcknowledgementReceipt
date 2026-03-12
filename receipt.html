@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receipt</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+padding:0;
+display:flex;
+justify-content:center;
+background:#fff;
+}
+
+.container{
+width:794px;
+height:1123px;
+padding:20px;
+box-sizing:border-box;
+font-size:14px;
+}
+
+.center-header{
+text-align:center;
+line-height:1.2;
+margin-bottom:6px;
+}
+
+.title{
+text-align:center;
+font-weight:bold;
+letter-spacing:1px;
+margin-bottom:8px;
+}
+
+.description{
+margin:6px 0;
+}
+
+.row{
+margin-top:8px;
+}
+
+.row b{
+display:inline-block;
+width:190px;
+}
+
+input[type="text"]{
+border:none;
+border-bottom:1px solid black;
+width:260px;
+font-size:12px;
+padding:2px;
+outline:none;
+background:transparent;
+margin-left:6px;
+}
+
+select{
+border:none;
+border-bottom:1px solid black;
+width:180px;
+font-size:12px;
+padding:2px;
+outline:none;
+background:transparent;
+margin-left:6px;
+cursor:pointer;
+appearance:none;
+background:url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right center;
+background-size:14px;
+padding-right:18px;
+}
+
+.button-container{
+margin-top:15px;
+display:flex;
+gap:10px;
+}
+
+button{
+padding:6px 12px;
+font-size:12px;
+border:none;
+border-radius:4px;
+cursor:pointer;
+}
+
+.print-btn{
+background:#0b5394;
+color:white;
+}
+
+.logout-btn{
+background:#d9534f;
+color:white;
+}
+
+@media screen{
+.container{
+transform:scale(1.1);
+transform-origin:top center;
+}
+}
+
+@media print{
+
+@page{
+size:A4 portrait;
+margin:0.3in;
+}
+
+body{
+display:block;
+}
+
+.container{
+width:auto;
+height:auto;
+transform:none!important;
+}
+
+button{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="center-header">
+
+<b>Republic of the Philippines</b><br>
+<b>Legazpi City Water District</b><br>
+Bitano, Legazpi City 4500, Philippines<br>
+Mobile No. 0952 742-0982 / 0920-2706621 / 0993-073-3497<br>
+Email: legwater@yahoo.com<br>
+Website: www.legazpicitywater.gov.ph
+
+</div>
+
+<div class="title">
+ACKNOWLEDGEMENT RECEIPT OF APPLICATION/REQUEST
+</div>
+
+<div class="description">
+This document serves as official acknowledgement that your application/request has been received and formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b> for processing.
+</div>
+
+<div class="row">
+<b>Identification Number:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Date of Receipt:</b>
+<input type="text" id="dateReceipt">
+</div>
+
+<div class="row">
+<b>Time of Receipt:</b>
+<input type="text" id="timeReceipt">
+</div>
+
+<div class="row">
+<b>Application/Request Type:</b>
+<select>
+<option hidden selected></option>
+<option>New Connection</option>
+<option>Reconnection</option>
+<option>Change of Registration</option>
+<option>Transfer of Tapping</option>
+<option>Change of Size</option>
+</select>
+</div>
+
+<div class="row">
+<b>Account Name:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Account Number:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Address:</b>
+<input type="text">
+</div>
+
+<div class="description">
+Please retain this receipt as the Identification Number above shall be used as reference for all subsequent transactions, inquiries, and follow-ups regarding this application/request.
+</div>
+
+<div class="row">
+<b>Processed by:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Department/Division:</b>
+<select>
+<option hidden selected></option>
+<option>Customer Services Division</option>
+<option>Customer Account Division</option>
+</select>
+</div>
+
+<div class="row">
+<b>Position/Designation:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Signature:</b>
+<input type="text">
+</div>
+
+<div class="button-container">
+
+<button class="print-btn" onclick="window.print()">
+Print Receipt
+</button>
+
+<button class="logout-btn" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+window.onload=function(){
+
+const today=new Date()
+
+const date=(today.getMonth()+1).toString().padStart(2,'0')+"/"+
+today.getDate().toString().padStart(2,'0')+"/"+
+today.getFullYear()
+
+let hours=today.getHours()
+const minutes=today.getMinutes().toString().padStart(2,'0')
+const ampm=hours>=12?'PM':'AM'
+
+hours=hours%12||12
+
+document.getElementById("dateReceipt").value=date
+document.getElementById("timeReceipt").value=hours+":"+minutes+" "+ampm
+
+}
+
+function logout(){
+
+localStorage.removeItem("loggedInUser")
+window.location.href="login.html"
+
+}
+
+</script>
+
+</body>
+</html>

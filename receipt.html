@@ -17,57 +17,48 @@ body {
 
 .container {
   width: 700px;
-  height: 50%; /* half A4 */
+  height: 50%; /* half A4 height */
   padding: 20px;
   box-sizing: border-box;
   font-size: 14px;
-  margin: 20px auto;
+  margin: 0 auto; /* center horizontally */
   position: relative;
 }
 
 .center-header {
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.1;
   margin-bottom: 6px;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  font-size: 12px;
-  color: #0b5394;
 }
 
 .title {
   text-align: center;
   font-weight: bold;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   margin-top: 100px; /* leave space for header */
-  font-size: 16px;
-  color: #0b5394;
 }
 
 .description {
   margin-top: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   text-align: justify;
-  font-size: 13px;
-  color: #333;
 }
 
 .row {
   margin-top: 10px;
-  display: flex;
-  align-items: center;
 }
 
 .row b {
   display: inline-block;
   width: 200px;
-  color: #0b5394;
 }
 
-input[type="text"], select {
+input[type="text"], .line-input {
   border: none;
   border-bottom: 1px solid black;
   width: 300px;
@@ -78,34 +69,52 @@ input[type="text"], select {
   margin-left: 6px;
 }
 
+/* Line as a text box */
+.line-input {
+  width: 100%;
+  border-bottom: 1px solid black;
+  background: transparent;
+  margin: 10px 0;
+  font-size: 12px;
+  padding: 3px;
+}
+
 /* Clean select dropdown */
 select {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 240px;
+  font-size: 13px;
+  padding: 3px;
+  outline: none;
+  background: transparent;
+  margin-left: 6px;
+  cursor: pointer;
+
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+
   background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 14px;
   padding-right: 20px;
-  cursor: pointer;
 }
 
 /* Buttons */
 .button-container {
-  margin-top: 15px;
+  margin-top: 20px;
   display: flex;
   gap: 10px;
-  justify-content: center;
 }
 
 button {
-  padding: 7px 16px;
+  padding: 7px 14px;
   font-size: 13px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .print-btn {
@@ -141,15 +150,27 @@ button {
     display: none;
   }
 
+  /* Header stays at top */
+  .center-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Remove dropdown arrow for print */
   select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     background-image: none !important;
   }
 }
 </style>
 </head>
+
 <body>
-<div class="container">
+<div class="container" id="receiptContainer">
 
 <div class="center-header">
 <b>Republic of the Philippines</b><br>
@@ -168,6 +189,9 @@ ACKNOWLEDGEMENT RECEIPT OF APPLICATION/REQUEST
 This document serves as official acknowledgement that your application/request has been received and
 formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b> for processing.
 </div>
+
+<!-- Editable line instead of horizontal rule -->
+<input type="text" class="line-input" placeholder="Type additional info here">
 
 <div class="row"><b>Identification Number:</b><input type="text"></div>
 <div class="row"><b>Date of Receipt:</b><input type="text" id="dateReceipt"></div>
@@ -207,7 +231,7 @@ transactions, inquiries, and follow-ups regarding this application/request.
 <div class="row"><b>Signature:</b><input type="text"></div>
 
 <div class="button-container">
-  <button class="print-btn" onclick="window.print()">Print Receipt</button>
+  <button class="print-btn" onclick="printReceipt()">Print Receipt</button>
   <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
@@ -233,6 +257,11 @@ function logout() {
   localStorage.removeItem("loggedInUser");
   window.location.href="index.html";
 }
+
+function printReceipt() {
+  window.print();
+}
 </script>
 </body>
 </html>
+

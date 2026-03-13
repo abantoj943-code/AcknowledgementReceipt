@@ -91,6 +91,24 @@ select {
   cursor: pointer;
 }
 
+/* Signature box */
+.signature-box {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;       /* stretch across the row */
+  height: 70px;      /* taller box for signature */
+  font-size: 13px;
+  padding: 6px;
+  outline: none;
+  background: #f9f9f9;
+  margin-left: 6px;
+  resize: none;      /* prevent resizing */
+}
+.signature-box:focus {
+  border-color: #3fa9f5;
+  background: #fff;
+}
+
 /* Buttons */
 .button-container {
   margin-top: auto; /* push buttons to bottom */
@@ -195,7 +213,12 @@ transactions, inquiries, and follow-ups regarding this application/request.
 <div class="row"><b>Processed by:</b><input type="text"></div>
 <div class="row"><b>Department/Division:</b><input type="text"></div>
 <div class="row"><b>Position/Designation:</b><input type="text"></div>
-<div class="row"><b>Signature:</b><input type="text"></div>
+
+<!-- Signature box -->
+<div class="row">
+  <b>Signature:</b>
+  <textarea class="signature-box"></textarea>
+</div>
 
 <div class="button-container">
   <button class="print-btn" onclick="printReceipt()">Print Receipt</button>

@@ -6,166 +6,163 @@
 <title>Receipt - Half A4 Print</title>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #3fa9f5, #e0f7fa); /* water-themed background */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+padding:0;
+background:linear-gradient(135deg,#3fa9f5,#e0f7fa);
+display:flex;
+justify-content:center;
+align-items:flex-start;
+min-height:100vh;
 }
 
-/* Outer box for the form */
-.container {
-  width: 700px;
-  height: 5.85in; /* half A4 height */
-  padding: 20px;
-  box-sizing: border-box;
-  font-size: 14px;
-  margin: 20px auto;
-  background: #fff; /* solid white for clarity */
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border: 1px solid #0b5394; /* clean consistent border */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+/* MAIN CONTAINER */
+
+.container{
+width:700px;
+max-width:95%;
+background:white;
+margin:20px;
+padding:20px;
+box-sizing:border-box;
+border-radius:6px;
+border:1px solid #0b5394;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-.center-header {
-  text-align: center;
-  line-height: 1.3;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #0b5394;
-  color: #0b5394;
+/* HEADER */
+
+.center-header{
+text-align:center;
+line-height:1.4;
+padding-bottom:10px;
+margin-bottom:10px;
+border-bottom:1px solid #0b5394;
+color:#0b5394;
 }
 
-.title {
-  text-align: center;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin: 10px 0;
-  color: #0b5394;
+.title{
+text-align:center;
+font-weight:bold;
+letter-spacing:1px;
+margin:10px 0;
+color:#0b5394;
 }
 
-.description {
-  margin-top: 6px;
-  margin-bottom: 10px;
-  text-align: justify;
-  color: #333;
+.description{
+margin:8px 0;
+text-align:justify;
+color:#333;
+font-size:14px;
 }
 
-.row {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+/* FORM ROW */
+
+.row{
+display:flex;
+align-items:center;
+margin-top:8px;
+gap:10px;
 }
 
-.row b {
-  flex: 0 0 200px;
-  color: #0b5394;
+.row b{
+width:200px;
+color:#0b5394;
+font-size:14px;
 }
 
-/* Proper text boxes */
-input[type="text"], select {
-  border: 1px solid #0b5394;   /* unified border */
-  border-radius: 4px;
-  font-size: 13px;
-  padding: 6px;
-  outline: none;
-  background: #f9f9f9;
-  flex: 1;
-  min-width: 200px;
+/* INPUT */
+
+input[type="text"],select{
+flex:1;
+padding:6px;
+border:1px solid #0b5394;
+border-radius:4px;
+font-size:13px;
+background:#f9f9f9;
 }
 
-input[type="text"]:focus, select:focus {
-  border-color: #3fa9f5;
-  background: #fff;
+input:focus,select:focus{
+background:white;
+border-color:#3fa9f5;
+outline:none;
 }
 
-select {
-  cursor: pointer;
+/* SIGNATURE */
+
+.signature-box{
+flex:1;
+height:80px;
+border:1px solid #0b5394;
+border-radius:4px;
+padding:6px;
+font-size:13px;
+resize:none;
+background:#f9f9f9;
 }
 
-/* Signature box */
-.signature-box {
-  border: 1px solid #0b5394;   /* same border style */
-  border-radius: 4px;
-  width: 100%;       /* stretch across the row */
-  height: 80px;      /* taller box for signature */
-  font-size: 13px;
-  padding: 6px;
-  outline: none;
-  background: #f9f9f9;
-  margin-left: 6px;
-  resize: none;      /* prevent resizing */
-}
-.signature-box:focus {
-  border-color: #3fa9f5;
-  background: #fff;
+/* BUTTONS */
+
+.button-container{
+margin-top:15px;
+display:flex;
+justify-content:center;
+gap:10px;
 }
 
-/* Buttons */
-.button-container {
-  margin-top: auto; /* push buttons to bottom */
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+button{
+padding:7px 14px;
+font-size:13px;
+border:none;
+border-radius:4px;
+cursor:pointer;
 }
 
-button {
-  padding: 7px 14px;
-  font-size: 13px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.print-btn{
+background:#0b5394;
+color:white;
 }
 
-.print-btn {
-  background: #0b5394;
-  color: white;
+.logout-btn{
+background:#d9534f;
+color:white;
 }
 
-.logout-btn {
-  background: #d9534f;
-  color: white;
+/* PRINT SETTINGS */
+
+@media print{
+
+@page{
+size:A4 portrait;
+margin:0.3in;
 }
 
-/* Print */
-@media print {
-  @page {
-    size: A4 portrait;
-    margin: 0.2in;
-  }
-
-  body {
-    background: #fff;
-    display: block;
-  }
-
-  .container {
-    width: auto;
-    height: 5.85in; /* enforce half-page */
-    margin: 0;
-    box-shadow: none;
-    border: 1px solid #000;
-    background: #fff;
-    page-break-after: always;
-  }
-
-  button {
-    display: none;
-  }
+body{
+background:white;
+display:block;
 }
+
+.container{
+width:100%;
+height:5.85in;
+box-shadow:none;
+border:1px solid black;
+}
+
+button{
+display:none;
+}
+
+}
+
 </style>
 </head>
 
 <body>
-<div class="container" id="receiptContainer">
+
+<div class="container">
 
 <div class="center-header">
 <b>Republic of the Philippines</b><br>
@@ -181,77 +178,123 @@ ACKNOWLEDGEMENT RECEIPT OF APPLICATION/REQUEST
 </div>
 
 <div class="description">
-This document serves as official acknowledgement that your application/request has been received and
-formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b> for processing.
+This document serves as official acknowledgement that your application/request has been received and formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b> for processing.
 </div>
 
-<div class="row"><b>Identification Number:</b><input type="text"></div>
-<div class="row"><b>Date of Receipt:</b><input type="text" id="dateReceipt"></div>
-<div class="row"><b>Time of Receipt:</b><input type="text" id="timeReceipt"></div>
+<div class="row">
+<b>Identification Number:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Date of Receipt:</b>
+<input type="text" id="dateReceipt">
+</div>
+
+<div class="row">
+<b>Time of Receipt:</b>
+<input type="text" id="timeReceipt">
+</div>
 
 <div class="row">
 <b>Application/Request Type:</b>
 <select>
-  <option value="" disabled selected hidden></option>
-  <option>New Connection</option>
-  <option>Reconnection</option>
-  <option>Change of Registration</option>
-  <option>Transfer of Tapping</option>
-  <option>Change of Size</option>
+<option hidden></option>
+<option>New Connection</option>
+<option>Reconnection</option>
+<option>Change of Registration</option>
+<option>Transfer of Tapping</option>
+<option>Change of Size</option>
 </select>
 </div>
 
-<div class="row"><b>Account Name:</b><input type="text"></div>
-<div class="row"><b>Account Number:</b><input type="text"></div>
-<div class="row"><b>Address:</b><input type="text"></div>
-
-<div class="description">
-Please retain this receipt as the Identification Number above shall be used as reference for all subsequent
-transactions, inquiries, and follow-ups regarding this application/request.
+<div class="row">
+<b>Account Name:</b>
+<input type="text">
 </div>
 
-<div class="row"><b>Processed by:</b><input type="text"></div>
-<div class="row"><b>Department/Division:</b><input type="text"></div>
-<div class="row"><b>Position/Designation:</b><input type="text"></div>
-
-<!-- Signature box -->
 <div class="row">
-  <b>Signature:</b>
-  <textarea class="signature-box"></textarea>
+<b>Account Number:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Address:</b>
+<input type="text">
+</div>
+
+<div class="description">
+Please retain this receipt as the Identification Number above shall be used as reference for all subsequent transactions, inquiries, and follow-ups regarding this application/request.
+</div>
+
+<div class="row">
+<b>Processed by:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Department/Division:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Position/Designation:</b>
+<input type="text">
+</div>
+
+<div class="row">
+<b>Signature:</b>
+<textarea class="signature-box"></textarea>
 </div>
 
 <div class="button-container">
-  <button class="print-btn" onclick="printReceipt()">Print Receipt</button>
-  <button class="logout-btn" onclick="logout()">Logout</button>
+<button class="print-btn" onclick="printReceipt()">Print Receipt</button>
+<button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
 </div>
 
 <script>
-window.onload = function() {
-  const today = new Date();
-  const date = (today.getMonth()+1).toString().padStart(2,'0')+"/"+
-               today.getDate().toString().padStart(2,'0')+"/"+
-               today.getFullYear();
-  let hours = today.getHours();
-  const minutes = today.getMinutes().toString().padStart(2,'0');
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-  const time = hours+":"+minutes+" "+ampm;
 
-  document.getElementById("dateReceipt").value = date;
-  document.getElementById("timeReceipt").value = time;
+/* AUTO DATE + TIME */
+
+window.onload=function(){
+
+const today=new Date();
+
+const date=(today.getMonth()+1).toString().padStart(2,'0')+"/"+
+today.getDate().toString().padStart(2,'0')+"/"+
+today.getFullYear();
+
+let hours=today.getHours();
+const minutes=today.getMinutes().toString().padStart(2,'0');
+
+const ampm=hours>=12?'PM':'AM';
+
+hours=hours%12;
+hours=hours?hours:12;
+
+const time=hours+":"+minutes+" "+ampm;
+
+document.getElementById("dateReceipt").value=date;
+document.getElementById("timeReceipt").value=time;
+
 }
 
-function logout() {
-  localStorage.removeItem("loggedInUser");
-  window.location.href="login.html";
+/* PRINT */
+
+function printReceipt(){
+window.print();
 }
 
-function printReceipt() {
-  window.print();
+/* LOGOUT */
+
+function logout(){
+localStorage.removeItem("loggedInUser");
+window.location.href="login.html";
 }
+
 </script>
+
 </body>
 </html>

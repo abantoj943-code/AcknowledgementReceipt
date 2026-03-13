@@ -8,34 +8,33 @@
 
 <style>
 
-/* BODY WITH WATER STYLE BACKGROUND */
+/* SCREEN BACKGROUND */
 body{
 font-family:Arial, sans-serif;
 margin:0;
 padding:0;
 display:flex;
 justify-content:center;
+align-items:center;
+min-height:100vh;
 
-/* soft water gradient */
+/* water style background (screen only) */
 background:linear-gradient(180deg,#e8f6ff,#ffffff);
 
-/* water bubble effect */
 background-image:
 radial-gradient(circle at 25% 20%, rgba(0,150,255,0.08) 0%, transparent 40%),
-radial-gradient(circle at 75% 40%, rgba(0,150,255,0.06) 0%, transparent 40%),
-radial-gradient(circle at 50% 80%, rgba(0,150,255,0.05) 0%, transparent 40%);
+radial-gradient(circle at 75% 40%, rgba(0,150,255,0.06) 0%, transparent 40%);
 }
 
 /* RECEIPT PAPER */
 .container{
-width:750px;
-min-height:1050px;
-padding:35px;
+width:700px;
+padding:30px;
+background:white;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+border-radius:6px;
 box-sizing:border-box;
 font-size:14px;
-background:white;
-border-radius:6px;
-box-shadow:0 8px 25px rgba(0,0,0,0.15);
 }
 
 /* HEADER */
@@ -54,7 +53,7 @@ margin:12px 0;
 font-size:16px;
 }
 
-/* BLUE WATER LINE */
+/* WATER LINE */
 .water-line{
 border:none;
 height:3px;
@@ -88,7 +87,7 @@ background:transparent;
 margin-left:6px;
 }
 
-/* SELECT DROPDOWN */
+/* SELECT */
 select{
 border:none;
 border-bottom:1px solid black;
@@ -131,18 +130,27 @@ color:white;
 
 @page{
 size:A4 portrait;
-margin:0.5in;
+margin:0;
 }
 
 body{
 background:white;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+height:auto;
 }
 
+/* HALF A4 RECEIPT */
 .container{
 width:100%;
+max-width:700px;
 box-shadow:none;
+border:none;
+margin-top:60px;
 }
 
+/* hide buttons */
 button{
 display:none;
 }
@@ -283,10 +291,8 @@ document.getElementById("timeReceipt").value=hours+":"+minutes+" "+ampm
 }
 
 function logout(){
-
 localStorage.removeItem("loggedInUser")
 window.location.href="index.html"
-
 }
 
 </script>

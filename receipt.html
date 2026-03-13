@@ -10,8 +10,6 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
   background: #fff;
 }
 
@@ -21,6 +19,7 @@ body {
   padding: 20px;
   box-sizing: border-box;
   font-size: 14px;
+  margin: 0 auto; /* center horizontally only */
 }
 
 .center-header {
@@ -112,14 +111,13 @@ select {
   }
 
   body {
-    display: block;
     background: #fff;
   }
 
   .container {
     width: auto;
     height: 50%; /* enforce half-page */
-    transform: none !important;
+    margin: 0; /* flush to top */
     page-break-after: always;
   }
 

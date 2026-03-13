@@ -66,10 +66,9 @@ body {
 }
 
 /* Proper text boxes */
-input[type="text"] {
+input[type="text"], select {
   border: 1px solid #ccc;
   border-radius: 6px;
-  width: 300px;
   font-size: 13px;
   padding: 6px;
   outline: none;
@@ -77,27 +76,18 @@ input[type="text"] {
   margin-left: 6px;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, select:focus {
   border-color: #3fa9f5;
   background: #fff;
 }
 
-/* Dropdown styled as box */
 select {
-  border: 1px solid #ccc;
-  border-radius: 6px;
   width: 240px;
-  font-size: 13px;
-  padding: 6px;
-  outline: none;
-  background: #f9f9f9;
-  margin-left: 6px;
   cursor: pointer;
 }
 
-select:focus {
-  border-color: #3fa9f5;
-  background: #fff;
+input[type="text"] {
+  width: 300px;
 }
 
 /* Buttons */
@@ -202,8 +192,7 @@ transactions, inquiries, and follow-ups regarding this application/request.
 </div>
 
 <div class="row"><b>Processed by:</b><input type="text"></div>
-<div class="row">
-<b>Department/Division:</b>
+<div class="row"><b>Department/Division:</b>
 <select>
   <option value="" disabled selected hidden></option>
   <option>Customer Services Division</option>

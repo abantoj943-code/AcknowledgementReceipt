@@ -21,7 +21,7 @@ body {
 .container {
   width: 700px;
   height: 5.85in; /* half A4 height */
-  padding: 25px;
+  padding: 20px;
   box-sizing: border-box;
   font-size: 14px;
   margin: 20px auto;
@@ -29,6 +29,9 @@ body {
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   border: 2px solid #0b5394; /* official blue border */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .center-header {
@@ -56,12 +59,14 @@ body {
 }
 
 .row {
-  margin-top: 10px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .row b {
-  display: inline-block;
-  width: 200px;
+  flex: 0 0 200px;
   color: #0b5394;
 }
 
@@ -73,7 +78,8 @@ input[type="text"], select {
   padding: 6px;
   outline: none;
   background: #f9f9f9;
-  margin-left: 6px;
+  flex: 1;
+  min-width: 200px;
 }
 
 input[type="text"]:focus, select:focus {
@@ -82,17 +88,12 @@ input[type="text"]:focus, select:focus {
 }
 
 select {
-  width: 240px;
   cursor: pointer;
-}
-
-input[type="text"] {
-  width: 300px;
 }
 
 /* Buttons */
 .button-container {
-  margin-top: 20px;
+  margin-top: auto; /* push buttons to bottom */
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -192,13 +193,7 @@ transactions, inquiries, and follow-ups regarding this application/request.
 </div>
 
 <div class="row"><b>Processed by:</b><input type="text"></div>
-<div class="row"><b>Department/Division:</b>
-<select>
-  <option value="" disabled selected hidden></option>
-  <option>Customer Services Division</option>
-  <option>Customer Account Division</option>
-</select>
-</div>
+<div class="row"><b>Department/Division:</b><input type="text"></div>
 <div class="row"><b>Position/Designation:</b><input type="text"></div>
 <div class="row"><b>Signature:</b><input type="text"></div>
 

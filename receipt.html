@@ -18,16 +18,38 @@ body {
   /* Water-themed background */
   background: linear-gradient(135deg, #3fa9f5, #e0f7fa);
   background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Form container */
+/* Subtle animated wave effect */
+body::before {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 200%;
+  height: 200px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 100%;
+  animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Form container (white card) */
 .container {
   width: 700px;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   padding: 30px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 /* Header */
@@ -62,7 +84,7 @@ body {
 
 input[type="text"], select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 6px;

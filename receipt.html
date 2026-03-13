@@ -2,256 +2,235 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Acknowledgement Receipt</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receipt - Half A4 Print</title>
+
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right,#5fa8d3,#a7d0e8);
-    margin:0;
-    padding:20px;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
 }
 
-.container{
-    width:90%;           /* flexible width */
-    max-width:800px;      /* optional maximum width */
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:0;     /* clean look */
+.container {
+  width: 700px;
+  height: 50%; /* half A4 height */
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 0 auto; /* center horizontally */
 }
 
-.header{
-    text-align:center;
-    color:#0b5394;
-    font-size:13px;
+.center-header {
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 6px;
 }
 
-.header h3{
-    margin:2px;
-    font-size:16px;
+.title {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
 }
 
-.line{
-    border-top:2px solid #0b5394;
-    margin:10px 0;
+.description {
+  margin-top: 4px;
+  margin-bottom: 6px;
+  text-align: justify;
 }
 
-.title{
-    text-align:center;
-    font-weight:bold;
-    letter-spacing:1px;
-    margin-bottom:8px;
-    color:#0b5394;
-    font-size:14px;
+.row {
+  margin-top: 10px;
 }
 
-.description{
-    font-size:12px;
-    margin-bottom:10px;
+.row b {
+  display: inline-block;
+  width: 200px;
 }
 
-.form-group{
-    display:flex;
-    align-items:center;
-    margin-bottom:6px;
+input[type="text"] {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 300px;
+  font-size: 13px;
+  padding: 3px;
+  outline: none;
+  background: transparent;
+  margin-left: 6px;
 }
 
-.form-group label{
-    width:200px;
-    font-weight:bold;
-    color:#0b5394;
-    font-size:12px;
+/* Clean select dropdown */
+select {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 240px;
+  font-size: 13px;
+  padding: 3px;
+  outline: none;
+  background: transparent;
+  margin-left: 6px;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 14px;
+  padding-right: 20px;
 }
 
-/* Clean input style and flexible width */
-.form-group input,
-.form-group select,
-.form-group textarea{
-    flex:1;  /* scale with container */
-    padding:4px;
-    font-size:12px;
-    border:none;
-    border-bottom:1px solid #2b78e4;
-    border-radius:0;
+/* Buttons */
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 
-textarea.signature{
-    height:60px;
+button {
+  padding: 7px 14px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.buttons{
-    text-align:center;
-    margin-top:15px;
+.print-btn {
+  background: #0b5394;
+  color: white;
 }
 
-.print-btn{
-    background:#1c4587;
-    color:white;
-    padding:8px 16px;
-    border:none;
-    border-radius:4px;
-    cursor:pointer;
+.logout-btn {
+  background: #d9534f;
+  color: white;
 }
 
-.logout-btn{
-    background:#d9534f;
-    color:white;
-    padding:8px 16px;
-    border:none;
-    border-radius:4px;
-    cursor:pointer;
-}
+/* Print */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0.2in;
+  }
 
-/* PRINT SETTINGS FOR HALF A4 HORIZONTALLY */
-@media print{
-    @page {
-        size: A4 landscape;  /* landscape for horizontal half sheet */
-        margin:10mm;
-    }
+  body {
+    background: #fff;
+    display: block;
+  }
 
-    body{
-        background:white;
-        padding:0;
-    }
+  .container {
+    width: auto;
+    height: 50%; /* half A4 */
+    margin: 0;
+    page-break-after: always;
+  }
 
-    .buttons{
-        display:none;
-    }
+  button {
+    display: none;
+  }
 
-    .container{
-        width:100%;
-        height:148mm; /* half of A4 height */
-        border:none;  /* no outer box in print */
-        box-shadow:none;
-        box-sizing: border-box;
-        overflow:hidden;
-    }
+  /* Hide header in print */
+  .center-header {
+    display: none;
+  }
 }
 </style>
 </head>
+
 <body>
+<div class="container" id="receiptContainer">
 
-<div class="container">
-
-<div class="header">
-<h3>Republic of the Philippines</h3>
-<h3><b>Legazpi City Water District</b></h3>
-<p>Bitano, Legazpi City 4500, Philippines</p>
-<p>Mobile No. 0952 742-0982 / 0920-2706621 / 0993-073-3497</p>
-<p>Email: legwater@yahoo.com</p>
-<p>Website: www.legazpicitywater.gov.ph</p>
+<div class="center-header">
+<b>Republic of the Philippines</b><br>
+<b>Legazpi City Water District</b><br>
+Bitano, Legazpi City 4500, Philippines<br>
+Mobile No. 0952 742-0982 / 0920-2706621 / 0993-073-3497<br>
+Email: legwater@yahoo.com<br>
+Website: www.legazpicitywater.gov.ph
 </div>
-
-<div class="line"></div>
 
 <div class="title">
-ACKNOWLEDGEMENT RECEIPT OF APPLICATION / REQUEST
+ACKNOWLEDGEMENT RECEIPT OF APPLICATION/REQUEST
 </div>
 
-<p class="description">
-This document serves as official acknowledgement that your application/request has been received and formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b>.
-</p>
-
-<div class="form-group">
-<label>Identification Number:</label>
-<input type="text">
+<div class="description">
+This document serves as official acknowledgement that your application/request has been received and
+formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b> for processing.
 </div>
 
-<div class="form-group">
-<label>Date of Receipt:</label>
-<input type="date" id="dateField">
-</div>
+<div class="row"><b>Identification Number:</b><input type="text"></div>
+<div class="row"><b>Date of Receipt:</b><input type="text" id="dateReceipt"></div>
+<div class="row"><b>Time of Receipt:</b><input type="text" id="timeReceipt"></div>
 
-<div class="form-group">
-<label>Time of Receipt:</label>
-<input type="time" id="timeField">
-</div>
-
-<div class="form-group">
-<label>Application/Request Type:</label>
+<div class="row">
+<b>Application/Request Type:</b>
 <select>
-<option value="" disabled selected>Select Type</option>
-<option>New Connection</option>
-<option>Reconnection</option>
-<option>Change of Registration</option>
-<option>Transfer of Tapping</option>
-<option>Change of Size</option>
+  <option value="" disabled selected hidden></option>
+  <option>New Connection</option>
+  <option>Reconnection</option>
+  <option>Change of Registration</option>
+  <option>Transfer of Tapping</option>
+  <option>Change of Size</option>
 </select>
 </div>
 
-<div class="form-group">
-<label>Account Name:</label>
-<input type="text">
+<div class="row"><b>Account Name:</b><input type="text"></div>
+<div class="row"><b>Account Number:</b><input type="text"></div>
+<div class="row"><b>Address:</b><input type="text"></div>
+
+<div class="description">
+Please retain this receipt as the Identification Number above shall be used as reference for all subsequent
+transactions, inquiries, and follow-ups regarding this application/request.
 </div>
 
-<div class="form-group">
-<label>Account Number:</label>
-<input type="text">
-</div>
-
-<div class="form-group">
-<label>Address:</label>
-<textarea></textarea>
-</div>
-
-<p style="font-size:11px;">
-Please retain this receipt as the Identification Number above shall be used as reference for all inquiries and follow-ups.
-</p>
-
-<div class="form-group">
-<label>Processed by:</label>
-<input type="text">
-</div>
-
-<div class="form-group">
-<label>Department/Division:</label>
+<div class="row"><b>Processed by:</b><input type="text"></div>
+<div class="row">
+<b>Department/Division:</b>
 <select>
-<option value="" disabled selected>Select Division</option>
-<option>Customer Services Division</option>
-<option>Customer Account Division</option>
+  <option value="" disabled selected hidden></option>
+  <option>Customer Services Division</option>
+  <option>Customer Account Division</option>
 </select>
 </div>
+<div class="row"><b>Position/Designation:</b><input type="text"></div>
+<div class="row"><b>Signature:</b><input type="text"></div>
 
-<div class="form-group">
-<label>Position/Designation:</label>
-<input type="text">
-</div>
-
-<div class="form-group">
-<label>Signature:</label>
-<textarea class="signature"></textarea>
-</div>
-
-<div class="buttons">
-<button class="print-btn" onclick="window.print()">Print Receipt</button>
-<button class="logout-btn" onclick="logout()">Logout</button>
+<div class="button-container">
+  <button class="print-btn" onclick="printReceipt()">Print Receipt</button>
+  <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
 </div>
 
 <script>
-// Auto fill date and time
-window.addEventListener('DOMContentLoaded', () => {
-    const dateField = document.getElementById('dateField');
-    const timeField = document.getElementById('timeField');
+window.onload = function() {
+  const today = new Date();
+  const date = (today.getMonth()+1).toString().padStart(2,'0')+"/"+
+               today.getDate().toString().padStart(2,'0')+"/"+today.getFullYear();
+  let hours = today.getHours();
+  const minutes = today.getMinutes().toString().padStart(2,'0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  const time = hours+":"+minutes+" "+ampm;
 
-    const now = new Date();
-    const yyyy = now.getFullYear();
-    const mm = String(now.getMonth() + 1).padStart(2, '0');
-    const dd = String(now.getDate()).padStart(2, '0');
-    dateField.value = `${yyyy}-${mm}-${dd}`;
+  document.getElementById("dateReceipt").value = date;
+  document.getElementById("timeReceipt").value = time;
+}
 
-    const hh = String(now.getHours()).padStart(2, '0');
-    const min = String(now.getMinutes()).padStart(2, '0');
-    timeField.value = `${hh}:${min}`;
-});
-
-// Logout function
 function logout() {
-    window.location.href = "index.html"; // redirect to login page
+  localStorage.removeItem("loggedInUser");
+  window.location.href="login.html";
+}
+
+function printReceipt() {
+  window.print();
 }
 </script>
-
 </body>
 </html>

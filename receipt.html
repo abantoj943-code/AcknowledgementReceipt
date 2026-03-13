@@ -1,160 +1,134 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Receipt - Half A4 Print</title>
+<title>Acknowledgement Receipt</title>
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
-margin:0;
-padding:0;
-background:linear-gradient(135deg,#3fa9f5,#e0f7fa);
-display:flex;
-justify-content:center;
-align-items:flex-start;
-min-height:100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#5fa8d3,#a7d0e8);
+    margin:0;
+    padding:30px;
 }
 
 /* MAIN CONTAINER */
-
 .container{
-width:700px;
-max-width:95%;
-background:white;
-margin:20px;
-padding:20px;
-box-sizing:border-box;
-border-radius:6px;
-border:1px solid #0b5394;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border:2px solid #1c4587;
+    border-radius:6px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* HEADER */
-
-.center-header{
-text-align:center;
-line-height:1.4;
-padding-bottom:10px;
-margin-bottom:10px;
-border-bottom:1px solid #0b5394;
-color:#0b5394;
+.header{
+    text-align:center;
+    color:#0b5394;
 }
 
+.header h3{
+    margin:2px;
+}
+
+.line{
+    border-top:2px solid #0b5394;
+    margin:15px 0;
+}
+
+/* TITLE */
 .title{
-text-align:center;
-font-weight:bold;
-letter-spacing:1px;
-margin:10px 0;
-color:#0b5394;
+    text-align:center;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    color:#0b5394;
 }
 
+/* DESCRIPTION */
 .description{
-margin:8px 0;
-text-align:justify;
-color:#333;
-font-size:14px;
+    font-size:14px;
+    margin-bottom:20px;
 }
 
-/* FORM ROW */
-
-.row{
-display:flex;
-align-items:center;
-margin-top:8px;
-gap:10px;
+/* FORM LAYOUT */
+.form-group{
+    display:flex;
+    align-items:center;
+    margin-bottom:10px;
 }
 
-.row b{
-width:200px;
-color:#0b5394;
-font-size:14px;
+.form-group label{
+    width:220px;
+    font-weight:bold;
+    color:#0b5394;
 }
 
-/* INPUT */
-
-input[type="text"],select{
-flex:1;
-padding:6px;
-border:1px solid #0b5394;
-border-radius:4px;
-font-size:13px;
-background:#f9f9f9;
+.form-group input,
+.form-group select{
+    flex:1;
+    padding:6px;
+    border:1px solid #2b78e4;
+    border-radius:4px;
 }
 
-input:focus,select:focus{
-background:white;
-border-color:#3fa9f5;
-outline:none;
+/* ADDRESS */
+textarea{
+    width:100%;
+    height:50px;
+    border:1px solid #2b78e4;
+    border-radius:4px;
+    padding:6px;
 }
 
 /* SIGNATURE */
-
-.signature-box{
-flex:1;
-height:80px;
-border:1px solid #0b5394;
-border-radius:4px;
-padding:6px;
-font-size:13px;
-resize:none;
-background:#f9f9f9;
+.signature{
+    height:80px;
 }
 
 /* BUTTONS */
-
-.button-container{
-margin-top:15px;
-display:flex;
-justify-content:center;
-gap:10px;
-}
-
-button{
-padding:7px 14px;
-font-size:13px;
-border:none;
-border-radius:4px;
-cursor:pointer;
+.buttons{
+    text-align:center;
+    margin-top:20px;
 }
 
 .print-btn{
-background:#0b5394;
-color:white;
+    background:#1c4587;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
 }
 
 .logout-btn{
-background:#d9534f;
-color:white;
+    background:#d9534f;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
 }
 
-/* PRINT SETTINGS */
-
+/* PRINT STYLE */
 @media print{
+    body{
+        background:white;
+        padding:0;
+    }
 
-@page{
-size:A4 portrait;
-margin:0.3in;
-}
+    .buttons{
+        display:none;
+    }
 
-body{
-background:white;
-display:block;
-}
-
-.container{
-width:100%;
-height:5.85in;
-box-shadow:none;
-border:1px solid black;
-}
-
-button{
-display:none;
-}
-
+    .container{
+        box-shadow:none;
+        border:1px solid black;
+    }
 }
 
 </style>
@@ -164,137 +138,97 @@ display:none;
 
 <div class="container">
 
-<div class="center-header">
-<b>Republic of the Philippines</b><br>
-<b>Legazpi City Water District</b><br>
-Bitano, Legazpi City 4500, Philippines<br>
-Mobile No. 0952 742-0982 / 0920-2706621 / 0993-073-3497<br>
-Email: legwater@yahoo.com<br>
-Website: www.legazpicitywater.gov.ph
+<div class="header">
+<h3>Republic of the Philippines</h3>
+<h3><b>Legazpi City Water District</b></h3>
+<p>Bitano, Legazpi City 4500, Philippines</p>
+<p>Mobile No. 0952 742-0982 / 0920-2706621 / 0993-073-3497</p>
+<p>Email: legwater@yahoo.com</p>
+<p>Website: www.legazpicitywater.gov.ph</p>
 </div>
+
+<div class="line"></div>
 
 <div class="title">
 ACKNOWLEDGEMENT RECEIPT OF APPLICATION/REQUEST
 </div>
 
-<div class="description">
+<p class="description">
 This document serves as official acknowledgement that your application/request has been received and formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b> for processing.
-</div>
+</p>
 
-<div class="row">
-<b>Identification Number:</b>
+<div class="form-group">
+<label>Identification Number:</label>
 <input type="text">
 </div>
 
-<div class="row">
-<b>Date of Receipt:</b>
-<input type="text" id="dateReceipt">
+<div class="form-group">
+<label>Date of Receipt:</label>
+<input type="date" value="2026-03-13">
 </div>
 
-<div class="row">
-<b>Time of Receipt:</b>
-<input type="text" id="timeReceipt">
+<div class="form-group">
+<label>Time of Receipt:</label>
+<input type="time">
 </div>
 
-<div class="row">
-<b>Application/Request Type:</b>
+<div class="form-group">
+<label>Application/Request Type:</label>
 <select>
-<option hidden></option>
-<option>New Connection</option>
+<option>Select Type</option>
+<option>New Water Connection</option>
 <option>Reconnection</option>
-<option>Change of Registration</option>
-<option>Transfer of Tapping</option>
-<option>Change of Size</option>
+<option>Billing Concern</option>
+<option>Service Complaint</option>
 </select>
 </div>
 
-<div class="row">
-<b>Account Name:</b>
+<div class="form-group">
+<label>Account Name:</label>
 <input type="text">
 </div>
 
-<div class="row">
-<b>Account Number:</b>
+<div class="form-group">
+<label>Account Number:</label>
 <input type="text">
 </div>
 
-<div class="row">
-<b>Address:</b>
-<input type="text">
+<div class="form-group">
+<label>Address:</label>
+<textarea></textarea>
 </div>
 
-<div class="description">
+<p style="font-size:13px;">
 Please retain this receipt as the Identification Number above shall be used as reference for all subsequent transactions, inquiries, and follow-ups regarding this application/request.
-</div>
+</p>
 
-<div class="row">
-<b>Processed by:</b>
+<div class="form-group">
+<label>Processed by:</label>
 <input type="text">
 </div>
 
-<div class="row">
-<b>Department/Division:</b>
+<div class="form-group">
+<label>Department/Division:</label>
 <input type="text">
 </div>
 
-<div class="row">
-<b>Position/Designation:</b>
+<div class="form-group">
+<label>Position/Designation:</label>
 <input type="text">
 </div>
 
-<div class="row">
-<b>Signature:</b>
-<textarea class="signature-box"></textarea>
+<div class="form-group">
+<label>Signature:</label>
+<textarea class="signature"></textarea>
 </div>
 
-<div class="button-container">
-<button class="print-btn" onclick="printReceipt()">Print Receipt</button>
-<button class="logout-btn" onclick="logout()">Logout</button>
+<div class="buttons">
+<button class="print-btn" onclick="window.print()">Print Receipt</button>
+<button class="logout-btn">Logout</button>
 </div>
 
 </div>
-
-<script>
-
-/* AUTO DATE + TIME */
-
-window.onload=function(){
-
-const today=new Date();
-
-const date=(today.getMonth()+1).toString().padStart(2,'0')+"/"+
-today.getDate().toString().padStart(2,'0')+"/"+
-today.getFullYear();
-
-let hours=today.getHours();
-const minutes=today.getMinutes().toString().padStart(2,'0');
-
-const ampm=hours>=12?'PM':'AM';
-
-hours=hours%12;
-hours=hours?hours:12;
-
-const time=hours+":"+minutes+" "+ampm;
-
-document.getElementById("dateReceipt").value=date;
-document.getElementById("timeReceipt").value=time;
-
-}
-
-/* PRINT */
-
-function printReceipt(){
-window.print();
-}
-
-/* LOGOUT */
-
-function logout(){
-localStorage.removeItem("loggedInUser");
-window.location.href="login.html";
-}
-
-</script>
 
 </body>
 </html>
+```

@@ -25,7 +25,7 @@ body {
   box-sizing: border-box;
   font-size: 14px;
   margin: 20px auto;
-  background: #ffffffcc; /* semi-transparent white card */
+  background: #ffffffee; /* semi-transparent white card */
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   border: 2px solid #0b5394; /* official blue border */
@@ -65,38 +65,39 @@ body {
   color: #0b5394;
 }
 
+/* Text boxes */
 input[type="text"] {
-  border: none;
-  border-bottom: 1px solid black;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   width: 300px;
   font-size: 13px;
-  padding: 3px;
+  padding: 6px;
   outline: none;
-  background: transparent;
+  background: #f9f9f9;
   margin-left: 6px;
 }
 
-/* Clean select dropdown */
+input[type="text"]:focus {
+  border-color: #3fa9f5;
+  background: #fff;
+}
+
+/* Clean select dropdown styled as box */
 select {
-  border: none;
-  border-bottom: 1px solid black;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   width: 240px;
   font-size: 13px;
-  padding: 3px;
+  padding: 6px;
   outline: none;
-  background: transparent;
+  background: #f9f9f9;
   margin-left: 6px;
   cursor: pointer;
+}
 
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 14px;
-  padding-right: 20px;
+select:focus {
+  border-color: #3fa9f5;
+  background: #fff;
 }
 
 /* Buttons */

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Acknowledgement Receipt</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body{
     font-family: Arial, sans-serif;
@@ -12,7 +12,6 @@ body{
     padding:20px;
 }
 
-/* MAIN CONTAINER */
 .container{
     width:650px;
     margin:auto;
@@ -22,7 +21,6 @@ body{
     border-radius:6px;
 }
 
-/* HEADER */
 .header{
     text-align:center;
     color:#0b5394;
@@ -39,7 +37,6 @@ body{
     margin:10px 0;
 }
 
-/* TITLE */
 .title{
     text-align:center;
     font-weight:bold;
@@ -49,13 +46,11 @@ body{
     font-size:14px;
 }
 
-/* DESCRIPTION */
 .description{
     font-size:12px;
     margin-bottom:10px;
 }
 
-/* FORM LAYOUT */
 .form-group{
     display:flex;
     align-items:center;
@@ -70,7 +65,8 @@ body{
 }
 
 .form-group input,
-.form-group select{
+.form-group select,
+.form-group textarea{
     flex:1;
     padding:4px;
     font-size:12px;
@@ -78,22 +74,10 @@ body{
     border-radius:3px;
 }
 
-/* ADDRESS */
-textarea{
-    width:100%;
-    height:40px;
-    border:1px solid #2b78e4;
-    border-radius:3px;
-    padding:4px;
-    font-size:12px;
-}
-
-/* SIGNATURE */
-.signature{
+textarea.signature{
     height:60px;
 }
 
-/* BUTTONS */
 .buttons{
     text-align:center;
     margin-top:15px;
@@ -117,7 +101,6 @@ textarea{
     cursor:pointer;
 }
 
-/* PRINT STYLE */
 @media print{
     @page{
         size: A5;
@@ -139,10 +122,8 @@ textarea{
         box-shadow:none;
     }
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="container">
@@ -237,7 +218,7 @@ Please retain this receipt as the Identification Number above shall be used as r
 
 <div class="buttons">
 <button class="print-btn" onclick="window.print()">Print Receipt</button>
-<button class="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
+<button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
 </div>
@@ -247,20 +228,24 @@ Please retain this receipt as the Identification Number above shall be used as r
 window.addEventListener('DOMContentLoaded', () => {
     const dateField = document.getElementById('dateField');
     const timeField = document.getElementById('timeField');
-    
+
     const now = new Date();
-    
-    // Format date as YYYY-MM-DD
     const yyyy = now.getFullYear();
     const mm = String(now.getMonth() + 1).padStart(2, '0');
     const dd = String(now.getDate()).padStart(2, '0');
     dateField.value = `${yyyy}-${mm}-${dd}`;
-    
-    // Format time as HH:MM
+
     const hh = String(now.getHours()).padStart(2, '0');
     const min = String(now.getMinutes()).padStart(2, '0');
     timeField.value = `${hh}:${min}`;
 });
+
+// Logout function for HTML-only system
+function logout() {
+    // Optionally, clear localStorage if you are using it
+    // localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html"; // redirect to login page
+}
 </script>
 
 </body>

@@ -58,7 +58,7 @@ body {
   width: 200px;
 }
 
-input[type="text"] {
+input[type="text"], .line-input {
   border: none;
   border-bottom: 1px solid black;
   width: 300px;
@@ -67,6 +67,16 @@ input[type="text"] {
   outline: none;
   background: transparent;
   margin-left: 6px;
+}
+
+/* Line as a text box */
+.line-input {
+  width: 100%;
+  border-bottom: 1px solid black;
+  background: transparent;
+  margin: 10px 0;
+  font-size: 12px;
+  padding: 3px;
 }
 
 /* Clean select dropdown */
@@ -140,7 +150,7 @@ button {
     display: none;
   }
 
-  /* Header stays at top, but hidden if needed */
+  /* Header stays at top */
   .center-header {
     position: absolute;
     top: 0;
@@ -179,6 +189,9 @@ ACKNOWLEDGEMENT RECEIPT OF APPLICATION/REQUEST
 This document serves as official acknowledgement that your application/request has been received and
 formally accepted by the <b>LEGAZPI CITY WATER DISTRICT</b> for processing.
 </div>
+
+<!-- Editable line instead of horizontal rule -->
+<input type="text" class="line-input" placeholder="Type additional info here">
 
 <div class="row"><b>Identification Number:</b><input type="text"></div>
 <div class="row"><b>Date of Receipt:</b><input type="text" id="dateReceipt"></div>
@@ -251,4 +264,3 @@ function printReceipt() {
 </script>
 </body>
 </html>
-

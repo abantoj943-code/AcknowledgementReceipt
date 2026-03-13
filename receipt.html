@@ -165,11 +165,12 @@ This document serves as official acknowledgement that your application/request h
 <div class="form-group">
 <label>Application/Request Type:</label>
 <select>
-<option>Select Type</option>
-<option>New Water Connection</option>
+<option value="" disabled selected>Select Type</option>
+<option>New Connection</option>
 <option>Reconnection</option>
-<option>Billing Concern</option>
-<option>Service Complaint</option>
+<option>Change of Registration</option>
+<option>Transfer of Tapping</option>
+<option>Change of Size</option>
 </select>
 </div>
 
@@ -200,7 +201,7 @@ Please retain this receipt as the Identification Number above shall be used as r
 <div class="form-group">
 <label>Department/Division:</label>
 <select>
-<option>Select Division</option>
+<option value="" disabled selected>Select Division</option>
 <option>Customer Services Division</option>
 <option>Customer Account Division</option>
 </select>
@@ -240,11 +241,10 @@ window.addEventListener('DOMContentLoaded', () => {
     timeField.value = `${hh}:${min}`;
 });
 
-// Logout function for HTML-only system
+// Logout function
 function logout() {
-    // Optionally, clear localStorage if you are using it
-    // localStorage.removeItem("loggedInUser");
-    window.location.href = "login.html"; // redirect to login page
+    // Redirect to login page
+    window.location.href = "login.html";
 }
 </script>
 
